@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Easy Clean</string>
+    <string name="font_name_SFUIDisplay_Light">SFUIDisplay_Light</string>
+    <string name="font_name_SFUIDisplay_Medium">SFUIDisplay_Medium</string>
+    <string name="font_name_SFUIDisplay_Bold">SFUIDisplay_Bold</string>
+    <string name="font_name_SFUIDisplay_Regular">SFUIDisplay_Regular</string>
+
+    <string name="font_name_Cairo_Black">Cairo-Black</string>
+    <string name="font_name_Cairo_Bold">Cairo-Bold</string>
+    <string name="font_name_Cairo_ExtraLight">Cairo-ExtraLight</string>
+    <string name="font_name_Cairo_Light">Cairo-Light</string>
+    <string name="font_name_Cairo_Regular">Cairo-Regular</string>
+    <string name="font_name_Cairo_SemiBold">Cairo-SemiBold</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
