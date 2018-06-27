@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:id="@+id/tab"
-    android:textSize="12sp"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
-    app:custom_font="@string/font_name_Cairo_Light"
+    android:orientation="vertical"
+
     >
 
-</com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView>
+    <ImageView
+        android:id="@+id/tab_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        />
+
+    <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/tab"
+        android:textSize="10sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:custom_font="@string/font_name_Cairo_SemiBold"
+        >
+
+    </com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView>
+</LinearLayout>

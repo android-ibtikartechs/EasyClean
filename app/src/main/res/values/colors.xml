@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
     <color name="colorMain">#b149a1</color>
+    <color name="colorDefaultBackground">#eeeeee</color>
+    <color name="background">#EBEBEB</color>
+    <color name="ColorLine">#95989a</color>
+    <color name="placeholder_grey_20">#AAADC4</color>
+    <color name="blue">#3d86ef</color>
+    <color name="black">#000000</color>
 </resources>

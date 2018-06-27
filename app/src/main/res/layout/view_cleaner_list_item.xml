@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     tools:text="الحد الأدنى للطلب 50 ج"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:custom_font="@string/font_name_Cairo_Light"
                     />
 

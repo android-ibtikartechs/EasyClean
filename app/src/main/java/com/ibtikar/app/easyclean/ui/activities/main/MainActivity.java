@@ -1,13 +1,19 @@
 package com.ibtikar.app.easyclean.ui.activities.main;
 
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
 import com.ibtikar.app.easyclean.ui.fragments.HomeFragment;
 import com.ibtikar.app.easyclean.ui.fragments.OrdersFragment;
 import com.ibtikar.app.easyclean.ui.fragments.ProfileFragment;
@@ -19,12 +25,16 @@ import com.ibtikar.app.easyclean.ui_utilities.ViewPagerAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.relativeLayout)
     TabLayout tabLayout;
     @BindView(R.id.view_pager_main)
     NonSwipeableViewPager viewPager;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.app_bar)
+    CardView appBarLayout;
 
     ViewPagerAdapter adapter;
     private int[] tabIcons = {R.drawable.home1, R.drawable.myacoount1, R.drawable.coupon1, R.drawable.cart1};
@@ -41,31 +51,42 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         for (int i = 0; i < 4; i++) {
-            CustomFontTextView tab = (CustomFontTextView) LayoutInflater.from(this).inflate(R.layout.view_custome_tab, null);
+            LinearLayout tab = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.view_custome_tab, null);
+
             switch (i)
             {
                 case 0 :
-                    tab.setText("الرئيسية");
-                    tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
+                    //tab.setText("الرئيسية");
+                    ((CustomFontTextView)tab.findViewById(R.id.tab)).setText(R.string.home_tab);
+                    //tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
+                    ((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(R.drawable.home);
+
 
                     break;
                 case 1 :
-                    tab.setText("حسابي");
-                    tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.myacoount1, 0, 0);
+                    //tab.setText("حسابي");
+                    //tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.myacoount1, 0, 0);
+                    ((CustomFontTextView)tab.findViewById(R.id.tab)).setText("حسابي");
+                    ((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(R.drawable.myacoount1);
                     break;
                 case 2 :
-                    tab.setText("اشتراكات");
-                    tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.coupon1, 0, 0);
+                    //tab.setText("اشتراكات");
+                    //tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.coupon1, 0, 0);
+                    ((CustomFontTextView)tab.findViewById(R.id.tab)).setText("اشتراكات");
+                    ((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(R.drawable.coupon1);
                     break;
                 case 3 :
-                    tab.setText("طلباتي");
-                    tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.cart1, 0, 0);
+                    //tab.setText("طلباتي");
+                    //tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.cart1, 0, 0);
+                    ((CustomFontTextView)tab.findViewById(R.id.tab)).setText("طلباتي");
+                    ((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(R.drawable.cart1);
                     break;
 
             }
 
             tabLayout.getTabAt(i).setCustomView(tab);
-
+            ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i).setSoundEffectsEnabled(false);
+            ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i).setBackground(getResources().getDrawable(R.drawable.container_dropshadow));
         }
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(
@@ -73,14 +94,24 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                //tab.setIcon(tabIconsSelected[tab.getPosition()]);
-                ((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIconsSelected[tab.getPosition()], 0, 0);
+                //((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIconsSelected[tab.getPosition()], 0, 0);
+                ((ImageView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
+                //((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
                 viewPager.setCurrentItem(tab.getPosition());
+                if (tab.getPosition() == 0)
+                {
+                    appBarLayout.setCardElevation(0);
+                }
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                ((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIcons[tab.getPosition()], 0, 0);
+                //((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIcons[tab.getPosition()], 0, 0);
+                ((ImageView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab_icon)).setImageResource(tabIcons[tab.getPosition()]);
+                if (tab.getPosition() == 0)
+                {
+                    appBarLayout.setCardElevation(5);
+                }
             }
 
             @Override
@@ -89,6 +120,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (tabLayout.getSelectedTabPosition() != 0) {
+            viewPager.setCurrentItem(0);
+        } else
+            super.onBackPressed();
     }
 
     private void setupViewPager(NonSwipeableViewPager viewPager) {
