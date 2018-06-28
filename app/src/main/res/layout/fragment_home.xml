@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    tools:context=".ui.fragments.HomeFragment">
+    android:orientation="vertical"
+    tools:context=".ui.fragments.home.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.CardView
@@ -72,6 +73,11 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
+    <com.ibtikar.app.easyclean.ui_utilities.CustomRecyclerView
+        android:id="@+id/rv_cleaners_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
+        />
 
 </LinearLayout>

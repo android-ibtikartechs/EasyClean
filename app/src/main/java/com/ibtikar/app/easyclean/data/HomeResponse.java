@@ -4,6 +4,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.ibtikar.app.easyclean.data.models.CleanerItemModel;
 
+import java.util.ArrayList;
+
 public class HomeResponse {
 
     @SerializedName("status")
@@ -21,8 +23,8 @@ public class HomeResponse {
         this.status = status;
     }
 
-    public java.util.List<CleanerItemModel> getList() {
-        return list;
+    public ArrayList<CleanerItemModel> getList() {
+        return new ArrayList<>(list);
     }
 
     public void setList(java.util.List<CleanerItemModel> list) {

@@ -11,4 +11,6 @@
     <color name="placeholder_grey_20">#AAADC4</color>
     <color name="blue">#3d86ef</color>
     <color name="black">#000000</color>
+    <color name="placeholder_grey">#AAADC4</color>
+    <color name="gray_blue">#607D8B</color>
 </resources>

@@ -16,6 +16,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_tab">Home</string>
 
+    <string name="tap_to_reload">Tap to reload</string>
+    <string name="what_rong">Something went wrong</string>
+    <string name="minimum_charge">الحد الأدنى للطلب</string>
+    <string name="unit">ج</string>
+    <string name="error_msg_unknown">Unknown error</string>
+
     <string-array name="admin_area">
         <item>city</item>
     </string-array>

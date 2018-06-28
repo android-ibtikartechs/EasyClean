@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:srcCompat="@drawable/place_holder"
+        android:alpha="0.5"
         />
 
     <ImageView

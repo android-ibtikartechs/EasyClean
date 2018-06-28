@@ -29,7 +29,7 @@ public class CleanerItemModel {
     @Expose
     private int review;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
