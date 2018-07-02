@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ibtikar.app.easyclean">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MvpApp"
@@ -19,9 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.cleaners_details.CleanerDetailsActivity"
+        <activity
+            android:name=".ui.activities.cleaners_details.CleanerDetailsActivity"
+            android:excludeFromRecents="true"
             android:exported="true"
-            ></activity>
+            android:taskAffinity=""
+            android:theme="@style/Theme.Sliding.Light" />
+        <activity android:name=".ui.activities.cleaners_details.CleanerDetailsActivityTest"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme.Sliding.Light"
+            />
     </application>
 
 </manifest>

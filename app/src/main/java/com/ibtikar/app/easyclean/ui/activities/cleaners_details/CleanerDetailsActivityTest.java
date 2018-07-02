@@ -1,76 +1,58 @@
 package com.ibtikar.app.easyclean.ui.activities.cleaners_details;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
-import android.view.Display;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ibtikar.app.easyclean.R;
-import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
 import com.ibtikar.app.easyclean.ui_utilities.GallerySliderAdapter;
+import com.klinker.android.sliding.MultiShrinkScroller;
 import com.klinker.android.sliding.SlidingActivity;
-
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CleanerDetailsActivity extends SlidingActivity {
-
+public class CleanerDetailsActivityTest extends SlidingActivity {
     ArrayList<String> slider_image_list = new ArrayList<>();
+    GallerySliderAdapter sliderStartAdapter;
     @BindView(R.id.page_slider)
     ViewPager viewPager;
 
     @BindView(R.id.image_page_dots)
     LinearLayout loutDots;
-    @BindView(R.id.main_content)
-    CoordinatorLayout baseLayout;
     private TextView[] dots;
-    GallerySliderAdapter sliderStartAdapter;
-
-
-    private int previousFingerPosition = 0;
-    private int baseLayoutPosition = 0;
-    private int defaultViewHeight;
-
-    private boolean isClosing = false;
-    private boolean isScrollingUp = false;
-    private boolean isScrollingDown = false;
-
-   /* @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cleaner_details);
-        ButterKnife.bind(this);
-        initSlider();
-        addBottomDots(0);
-    } */
-
     @Override
     public void init(Bundle savedInstanceState) {
-        enableFullscreen();
+
+        //setImage(R.drawable.test_lundary);
+        // setTitle("مغسلة");
+
+        setPrimaryColors(
+                getResources().getColor(R.color.blue),
+                getResources().getColor(R.color.colorPrimary)
+        );
         setContent(R.layout.activity_cleaner_details_test);
+        setHeaderContent(R.layout.view_custom_header);
+
         ButterKnife.bind(this);
         initSlider();
         addBottomDots(0);
     }
 
+    @Override
+    protected void configureScroller(MultiShrinkScroller scroller) {
+        super.configureScroller(scroller);
+        scroller.setIntermediateHeaderHeightRatio(1);
+    }
 
     public void initSlider() {
         addBottomDots(0);
@@ -125,9 +107,7 @@ public class CleanerDetailsActivity extends SlidingActivity {
 
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, CleanerDetailsActivity.class);
+        Intent intent = new Intent(context, CleanerDetailsActivityTest.class);
         return intent;
     }
-
-
 }

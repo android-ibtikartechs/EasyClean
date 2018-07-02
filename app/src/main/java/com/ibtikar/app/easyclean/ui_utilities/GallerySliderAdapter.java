@@ -33,7 +33,7 @@ public class GallerySliderAdapter extends PagerAdapter {
         if(!(image_arraylist.get(position).equals("")|| image_arraylist.get(position)==null))
         {
             Glide.with(context)
-                    .load(image_arraylist.get(position)).diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .load(image_arraylist.get(position))
                     .into(im_slider);
         }
         im_slider.setScaleType(ImageView.ScaleType.FIT_XY);

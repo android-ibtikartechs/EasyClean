@@ -6,17 +6,22 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.CleanerListAdapter;
 import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.data.models.CleanerItemModel;
+import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivity;
+import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivityTest;
 import com.ibtikar.app.easyclean.ui.fragments.base.BaseFragment;
+import com.ibtikar.app.easyclean.ui.fragments.search.SearchDialogFragment;
 import com.ibtikar.app.easyclean.ui_utilities.CustomRecyclerView;
 import com.ibtikar.app.easyclean.utilities.PaginationAdapterCallback;
 import com.ibtikar.app.easyclean.utilities.PaginationScrollListener;
@@ -60,7 +65,8 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @BindView(R.id.rv_cleaners_list)
     CustomRecyclerView rvCleaners;
-
+    @BindView(R.id.btn_search)
+    ImageView btnSearch;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -103,11 +109,22 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, rootView);
         arrayList = new ArrayList<>();
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getChildFragmentManager();
+                SearchDialogFragment searchDialogFragment = new SearchDialogFragment();
+
+                searchDialogFragment.show(fm, "search_dialog");
+            }
+        });
         return rootView;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+
 
         linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rvCleaners.setLayoutManager(linearLayoutManager);
@@ -220,7 +237,7 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @Override
     public void onItemClickListner(String id) {
-
+        getActivity().startActivity(CleanerDetailsActivityTest.getStartIntent(getActivity()));
     }
 
     @Override
