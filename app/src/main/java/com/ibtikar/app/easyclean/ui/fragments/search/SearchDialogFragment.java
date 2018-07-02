@@ -45,73 +45,22 @@ public class SearchDialogFragment extends BottomSheetDialogFragment {
                 dismiss();
             }
         });
-        configureBottomSheetBehavior(rootView);
+
         return rootView;
     }
 
-    @NonNull
+
+
+
+
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        BottomSheetDialog dialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-
-        final LinearLayout root = new LinearLayout(getActivity());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-        );
-
-
-
-        root.setLayoutParams(
-                //  new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                params
-        );
-        //dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(root);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.getWindow().setGravity(Gravity.TOP);
-
-        dialog.getWindow().setLayout(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-        );
-
-        return dialog;
+    public void onResume() {
+        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+        // Assign window properties to fill the parent
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        params.height = WindowManager.LayoutParams.MATCH_PARENT;
+        getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+        // Call super onResume after sizing
+        super.onResume();
     }
-
-
-    private void configureBottomSheetBehavior(View contentView) {
-
-        BottomSheetBehavior mBottomSheetBehavior = BottomSheetBehavior.from((View) contentView.findViewById(R.id.bottom_sheet).getParent());
-
-        if (mBottomSheetBehavior != null) {
-            mBottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-
-                @Override
-                public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                    //showing the different states
-                    switch (newState) {
-                        case BottomSheetBehavior.STATE_HIDDEN:
-                            dismiss(); //if you want the modal to be dismissed when user drags the bottomsheet down
-                            break;
-                        case BottomSheetBehavior.STATE_EXPANDED:
-                            break;
-                        case BottomSheetBehavior.STATE_COLLAPSED:
-                            break;
-                        case BottomSheetBehavior.STATE_DRAGGING:
-                            break;
-                        case BottomSheetBehavior.STATE_SETTLING:
-                            break;
-                    }
-                }
-
-                @Override
-                public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                }
-            });
-        }
-    }
-
-
-
 }
