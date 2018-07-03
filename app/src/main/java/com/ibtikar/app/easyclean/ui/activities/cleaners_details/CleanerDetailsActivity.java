@@ -41,7 +41,7 @@ import static android.support.v4.view.ViewCompat.animate;
 import static android.support.v4.view.ViewCompat.setAlpha;
 import static android.support.v4.view.ViewCompat.setTranslationY;
 
-public class CleanerDetailsActivity extends BaseActivity   {
+public class CleanerDetailsActivity extends BaseActivity {
 
     ArrayList<String> slider_image_list = new ArrayList<>();
     @BindView(R.id.page_slider)
@@ -49,6 +49,9 @@ public class CleanerDetailsActivity extends BaseActivity   {
 
     @BindView(R.id.image_page_dots)
     LinearLayout loutDots;
+
+    @BindView(R.id.main_content)
+    CoordinatorLayout coordinatorLayout;
 
     private TextView[] dots;
     GallerySliderAdapter sliderStartAdapter;

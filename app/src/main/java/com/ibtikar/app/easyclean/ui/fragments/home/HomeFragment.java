@@ -237,7 +237,7 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @Override
     public void onItemClickListner(String id) {
-        getActivity().startActivity(CleanerDetailsActivity.getStartIntent(getActivity()));
+        getActivity().startActivity(CleanerDetailsActivityTest.getStartIntent(getActivity()));
     }
 
     @Override

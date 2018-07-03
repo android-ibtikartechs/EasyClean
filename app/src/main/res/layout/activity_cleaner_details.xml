@@ -8,6 +8,7 @@
     android:id="@+id/main_content"
     tools:context=".ui.activities.cleaners_details.CleanerDetailsActivity">
 
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -169,7 +170,5 @@
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-
 
 </android.support.design.widget.CoordinatorLayout>
