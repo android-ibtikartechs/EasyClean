@@ -5,6 +5,9 @@
     <string name="minimum_charge">الحد الأدنى للطلب</string>
     <string name="unit">ج</string>
     <string name="error_msg_unknown">خطأ غير معروف</string>
+    <string name="order_type">نوع الطلب</string>
+    <string name="pricing">الأسعار</string>
+    <string name="info">معلومات</string>
     <string-array name="admin_area">
         <item>اختر المدينة</item>
     </string-array>
