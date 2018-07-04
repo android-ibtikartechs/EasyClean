@@ -1,13 +1,21 @@
-package com.ibtikar.app.easyclean.ui.fragments;
+package com.ibtikar.app.easyclean.ui.fragments.pricing;
 
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.data.models.Category;
+import com.ibtikar.app.easyclean.utilities.StaticValues;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,9 +28,16 @@ public class PricingFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    @BindView(R.id.main_tabLayout)
+    TabLayout tabLayout;
+
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
 
 
     public PricingFragment() {
@@ -39,10 +54,11 @@ public class PricingFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static PricingFragment newInstance() {
         PricingFragment fragment = new PricingFragment();
-        /*Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);*/
+        Bundle args = new Bundle();
+
+        fragment.setArguments(args);
+
+
         return fragment;
     }
 
@@ -50,7 +66,6 @@ public class PricingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
@@ -59,7 +74,8 @@ public class PricingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pricing, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pricing, container, false);
+        return rootView;
     }
 
 }

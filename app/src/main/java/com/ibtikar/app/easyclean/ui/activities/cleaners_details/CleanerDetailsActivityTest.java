@@ -16,11 +16,7 @@ import android.widget.TextView;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.ui.fragments.InfoFragment;
 import com.ibtikar.app.easyclean.ui.fragments.OrderTypeFragment;
-import com.ibtikar.app.easyclean.ui.fragments.OrdersFragment;
-import com.ibtikar.app.easyclean.ui.fragments.PricingFragment;
-import com.ibtikar.app.easyclean.ui.fragments.ProfileFragment;
-import com.ibtikar.app.easyclean.ui.fragments.SubscribeFragment;
-import com.ibtikar.app.easyclean.ui.fragments.home.HomeFragment;
+import com.ibtikar.app.easyclean.ui.fragments.pricing.PricingFragment;
 import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
 import com.ibtikar.app.easyclean.ui_utilities.GallerySliderAdapter;
 import com.ibtikar.app.easyclean.ui_utilities.NonSwipeableViewPager;
@@ -165,7 +161,7 @@ public class CleanerDetailsActivityTest extends SlidingActivity {
         slider_image_list.add("http://www.idealbridal.net/cm/dpl/images/create/wedding_dresses.jpg");
 
 
-        sliderStartAdapter = new GallerySliderAdapter(this, slider_image_list);
+        //sliderStartAdapter = new GallerySliderAdapter(this, slider_image_list);
         imagesSlider.setAdapter(sliderStartAdapter);
 
         imagesSlider.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

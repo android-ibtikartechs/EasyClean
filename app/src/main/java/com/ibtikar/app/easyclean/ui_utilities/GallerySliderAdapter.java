@@ -10,15 +10,16 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.data.models.Gallery;
 
 import java.util.ArrayList;
 
 public class GallerySliderAdapter extends PagerAdapter {
     Context context;
-    ArrayList<String> image_arraylist;
+    ArrayList<Gallery> image_arraylist;
     private LayoutInflater layoutInflater;
 
-    public GallerySliderAdapter(Context context, ArrayList<String> image_arraylist) {
+    public GallerySliderAdapter(Context context, ArrayList<Gallery> image_arraylist) {
         this.context = context;
         this.image_arraylist = image_arraylist;
     }
@@ -30,10 +31,10 @@ public class GallerySliderAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(R.layout.slider_start_layout, container, false);
         ImageView im_slider = view.findViewById(R.id.im_slider);
         //im_slider.setImageResource(image_arraylist.get(position));
-        if(!(image_arraylist.get(position).equals("")|| image_arraylist.get(position)==null))
+        if(!(image_arraylist.get(position).getImage().equals("")|| image_arraylist.get(position).getImage()==null))
         {
             Glide.with(context)
-                    .load(image_arraylist.get(position))
+                    .load(image_arraylist.get(position).getImage())
                     .into(im_slider);
         }
         im_slider.setScaleType(ImageView.ScaleType.FIT_XY);

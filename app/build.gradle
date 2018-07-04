@@ -32,6 +32,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.klinkerapps:sliding-activity:1.5.2'
     implementation 'com.otaliastudios:bottomsheetcoordinatorlayout:1.0.3'
+    implementation 'com.github.Commit451:ElasticDragDismissLayout:1.0.4'
+    implementation 'com.github.oxoooo:pull-back-layout:1.0.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

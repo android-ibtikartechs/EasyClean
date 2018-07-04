@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,9 +13,9 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="290dp"
-        app:elevation="0dp"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
+
         >
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -24,9 +25,9 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            android:background="#FAFAFA"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
+
             >
 
             <RelativeLayout
@@ -34,13 +35,137 @@
                 android:layout_height="wrap_content"
                 >
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="80dp"
+                    app:srcCompat="@drawable/place_holder"
+                    android:alpha="0.5"
+                    />
+
                 <android.support.v4.view.ViewPager
                     android:id="@+id/page_slider"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="350dp"
+
                     />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blue"
+                    android:orientation="vertical"
+                    android:layout_below="@id/page_slider"
+                    >
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center_vertical"
+                        >
+                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                            android:id="@+id/tv_cleaner_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:custom_font="@string/font_name_Cairo_Regular"
+                            android:text="دراي كلين دولفين"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
+
+                        <ImageView
+                            android:id="@+id/im_rate"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/star2"
+
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        >
+                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                            android:id="@+id/tv_comments_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:custom_font="@string/font_name_Cairo_Regular"
+                            android:text="التعليقات : 4"
+                            android:textColor="@color/white"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
+
+                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                            android:id="@+id/tv_mini_charge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:custom_font="@string/font_name_Cairo_Regular"
+                            android:text="الحد الأدنى للطلب 50 ج"
+                            android:textColor="@color/white"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        >
+                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                            android:id="@+id/tv_deliv_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:custom_font="@string/font_name_Cairo_Regular"
+                            android:text="رسم التوصيل : 10 ج"
+                            android:textColor="@color/white"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
+
+                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:custom_font="@string/font_name_Cairo_Regular"
+                            android:text="خدمات خاصة"
+                            android:textColor="@color/white"
+                            />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/image_page_dots"
@@ -69,106 +194,34 @@
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:backgroundTint="@null"
 
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+
+
+        <com.ibtikar.app.easyclean.ui_utilities.NonSwipeableViewPager
+            android:id="@+id/view_pager_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@color/blue"
-                android:orientation="vertical"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:gravity="center_vertical"
-                    >
-                    <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:custom_font="@string/font_name_Cairo_Regular"
-                        android:text="دراي كلين دولفين"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/star2"
-
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    >
-                    <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:custom_font="@string/font_name_Cairo_Regular"
-                        android:text="التعليقات : 4"
-                        android:textColor="@color/white"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/star2"
-
-                        />
-                </LinearLayout>
-
-
-
-
-
-            </LinearLayout>
-
-            <android.support.design.widget.TabLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:tabGravity="fill"
-                app:tabIndicatorHeight="0dp"
-                app:tabMode="fixed" />
-        </LinearLayout>
-
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
     </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

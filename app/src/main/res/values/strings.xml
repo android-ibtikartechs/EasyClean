@@ -24,6 +24,9 @@
     <string name="order_type">نوع الطلب</string>
     <string name="pricing">الأسعار</string>
     <string name="info">معلومات</string>
+    <string name="comments">التعليقات</string>
+    <string name="delivary_price">رسم التوصيل</string>
+
 
     <string-array name="admin_area">
         <item>city</item>

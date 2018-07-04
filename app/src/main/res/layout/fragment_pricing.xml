@@ -1,71 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:fillViewport="true"
-    tools:context=".ui.fragments.PricingFragment">
+    tools:context=".ui.fragments.pricing.PricingFragment">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".ui.fragments.PricingFragment"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/main_tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0.3dp"
+        app:tabMode="scrollable">
 
-    >
+    </android.support.design.widget.TabLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_tabLayout" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="64dp" />
-
-</LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>

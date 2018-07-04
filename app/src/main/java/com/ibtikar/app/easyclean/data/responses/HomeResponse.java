@@ -1,4 +1,4 @@
-package com.ibtikar.app.easyclean.data;
+package com.ibtikar.app.easyclean.data.responses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

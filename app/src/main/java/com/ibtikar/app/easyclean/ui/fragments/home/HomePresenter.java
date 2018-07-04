@@ -4,7 +4,7 @@ import android.net.Uri;
 
 import com.google.gson.Gson;
 import com.ibtikar.app.easyclean.data.DataManager;
-import com.ibtikar.app.easyclean.data.HomeResponse;
+import com.ibtikar.app.easyclean.data.responses.HomeResponse;
 import com.ibtikar.app.easyclean.ui.activities.base.BasePresenter;
 import com.ibtikar.app.easyclean.utilities.StaticValues;
 
