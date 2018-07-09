@@ -2,6 +2,8 @@ package com.ibtikar.app.easyclean.ui.fragments.pricing;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -16,6 +18,7 @@ import com.ibtikar.app.easyclean.utilities.StaticValues;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +30,7 @@ public class PricingFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Handler mHandler;
 
 
     // TODO: Rename and change types of parameters
@@ -68,6 +72,7 @@ public class PricingFragment extends Fragment {
         if (getArguments() != null) {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        mHandler = new Handler(Looper.getMainLooper());
     }
 
     @Override
@@ -75,7 +80,11 @@ public class PricingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_pricing, container, false);
+        ButterKnife.bind(this,rootView);
         return rootView;
     }
+
+
+
 
 }
