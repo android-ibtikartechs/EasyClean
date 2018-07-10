@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.DataManager;
+import com.ibtikar.app.easyclean.data.models.Category;
 import com.ibtikar.app.easyclean.data.models.CleanerDetails;
 import com.ibtikar.app.easyclean.data.models.Gallery;
 import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
@@ -83,7 +84,11 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
 
     GallerySliderAdapter sliderStartAdapter;
     CleanerDetailsPresenter presenter;
+
     Handler handler;
+    private Integer id;
+
+    String title, description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +111,11 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
 
 
 
+
+
+    }
+
+    private void setupTabs() {
         viewPager.setOffscreenPageLimit(3);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
@@ -173,7 +183,6 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
         });
 
         viewPager.setCurrentItem(1);
-
     }
 
  /*   @Override
@@ -248,8 +257,8 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
     private void setupViewPager(NonSwipeableViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(OrderTypeFragment.newInstance(),"Order Type Fragment");
-        adapter.addFragment(PricingFragment.newInstance(), "Pricing Fragment");
-        adapter.addFragment(InfoFragment.newInstance(),"Info Fragment");
+        adapter.addFragment(PricingFragment.newInstance(id.toString()), "Pricing Fragment");
+        adapter.addFragment(InfoFragment.newInstance(title, description),"Info Fragment");
 
         viewPager.setAdapter(adapter);
     }
@@ -279,6 +288,13 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
 
 
                 rate(cleanerDetails.getReview());
+
+                id = cleanerDetails.getId();
+
+                title = cleanerDetails.getName();
+                description = cleanerDetails.getBio();
+
+                setupTabs();
             }
         });
 
@@ -328,6 +344,7 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
     public void showProgressBar() {
 
     }
+
 
 
 

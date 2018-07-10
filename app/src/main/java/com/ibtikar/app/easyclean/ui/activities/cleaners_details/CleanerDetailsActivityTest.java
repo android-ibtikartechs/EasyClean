@@ -142,8 +142,8 @@ public class CleanerDetailsActivityTest extends SlidingActivity {
     private void setupViewPager(NonSwipeableViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(OrderTypeFragment.newInstance(),"Order Type Fragment");
-        adapter.addFragment(PricingFragment.newInstance(), "Pricing Fragment");
-        adapter.addFragment(InfoFragment.newInstance(),"Info Fragment");
+        //adapter.addFragment(PricingFragment.newInstance(), "Pricing Fragment");
+        //adapter.addFragment(InfoFragment.newInstance(),"Info Fragment");
 
         viewPager.setAdapter(adapter);
     }

@@ -1,6 +1,7 @@
 package com.ibtikar.app.easyclean.ui.fragments.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,6 +19,7 @@ import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.CleanerListAdapter;
 import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.data.models.CleanerItemModel;
+import com.ibtikar.app.easyclean.ui.activities.Main2Activity;
 import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivity;
 import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivityTest;
 import com.ibtikar.app.easyclean.ui.fragments.base.BaseFragment;
@@ -116,6 +118,8 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
                 SearchDialogFragment searchDialogFragment = new SearchDialogFragment();
 
                 searchDialogFragment.show(fm, "search_dialog");
+
+         //startActivity(new Intent(getActivity(), Main2Activity.class));
             }
         });
         return rootView;

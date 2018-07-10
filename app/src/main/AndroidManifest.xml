@@ -21,15 +21,17 @@
         </activity>
         <activity
             android:name=".ui.activities.cleaners_details.CleanerDetailsActivity"
-            android:theme="@style/ToolBarTheme"
-            />
+            android:theme="@style/ToolBarTheme" />
         <activity
             android:name=".ui.activities.cleaners_details.CleanerDetailsActivityTest"
             android:excludeFromRecents="true"
             android:exported="true"
             android:taskAffinity=""
             android:theme="@style/Theme.Sliding.Light" />
-        <activity android:name=".TestActivity"
+        <activity
+            android:name=".TestActivity"
+            android:exported="true" />
+        <activity android:name=".ui.activities.Main2Activity"
             android:exported="true"
             ></activity>
     </application>

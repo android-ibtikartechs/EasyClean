@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.InfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="info" />
 
-</FrameLayout>
+    <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+        android:id="@+id/customFontTextView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="الزهراء دراي كلين"
+        android:textColor="@color/black"
+        app:custom_font="@string/font_name_Cairo_SemiBold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+        android:id="@+id/customFontTextView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="النص ما ازداد وضوحا على الظاهر لمعنى المتكلم، وهو سوق الكلام لأجل ذلك المعنى، فإذا قيل أحسنوا إلى فلان الذي يفرح بفرحي ويغتم بغمي، كان نصا في بيان محبته. وما لا يحتمل إلا معنى واحدا، وقيل ما لا يحتمل التأويل"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:custom_font="@string/font_name_Cairo_Regular"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/customFontTextView4" />
+
+
+</android.support.constraint.ConstraintLayout>
