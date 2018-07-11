@@ -96,8 +96,11 @@ public class PricingFragment extends Fragment implements PricingMvpView {
         viewPager.setOffscreenPageLimit(4);
         setupViewPager();
         tabLayout.setupWithViewPager(viewPager);
+
         return rootView;
     }
+
+
 
     private void setupViewPager() {
         adapter = new ViewPagerAdapter (getChildFragmentManager());

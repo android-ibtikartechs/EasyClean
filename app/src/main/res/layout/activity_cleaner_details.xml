@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:elevation="0dp"
+
         >
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -27,6 +28,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
+
 
             >
 
@@ -51,121 +53,7 @@
 
                     />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/blue"
-                    android:orientation="vertical"
-                    android:layout_below="@id/page_slider"
-                    >
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center_vertical"
-                        >
-                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                            android:id="@+id/tv_cleaner_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:custom_font="@string/font_name_Cairo_Regular"
-                            android:text="دراي كلين دولفين"
-                            android:textColor="@color/white"
-                            android:textSize="24sp"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            />
-
-                        <ImageView
-                            android:id="@+id/im_rate"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/star2"
-
-                            />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        >
-                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                            android:id="@+id/tv_comments_amount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:custom_font="@string/font_name_Cairo_Regular"
-                            android:text="التعليقات : 4"
-                            android:textColor="@color/white"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            />
-
-                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                            android:id="@+id/tv_mini_charge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:custom_font="@string/font_name_Cairo_Regular"
-                            android:text="الحد الأدنى للطلب 50 ج"
-                            android:textColor="@color/white"
-                            />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        >
-                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                            android:id="@+id/tv_deliv_value"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:custom_font="@string/font_name_Cairo_Regular"
-                            android:text="رسم التوصيل : 10 ج"
-                            android:textColor="@color/white"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            />
-
-                        <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:custom_font="@string/font_name_Cairo_Regular"
-                            android:text="خدمات خاصة"
-                            android:textColor="@color/white"
-                            />
-                    </LinearLayout>
-
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/image_page_dots"
@@ -188,18 +76,136 @@
                     android:layout_width="match_parent"
                     android:layout_height="?android:attr/actionBarSize"
                     app:layout_collapseMode="pin"
+                    style="@style/ToolBarTheme"
                     />
 
 
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:orientation="vertical"
+            android:layout_below="@id/page_slider"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical"
+                >
+                <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                    android:id="@+id/tv_cleaner_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:custom_font="@string/font_name_Cairo_Regular"
+                    android:text="دراي كلين دولفين"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/im_rate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/star2"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                >
+                <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                    android:id="@+id/tv_comments_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:custom_font="@string/font_name_Cairo_Regular"
+                    android:text="التعليقات : 4"
+                    android:textColor="@color/white"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                    android:id="@+id/tv_mini_charge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:custom_font="@string/font_name_Cairo_Regular"
+                    android:text="الحد الأدنى للطلب 50 ج"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                >
+                <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                    android:id="@+id/tv_deliv_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:custom_font="@string/font_name_Cairo_Regular"
+                    android:text="رسم التوصيل : 10 ج"
+                    android:textColor="@color/white"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:custom_font="@string/font_name_Cairo_Regular"
+                    android:text="خدمات خاصة"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
         <android.support.design.widget.TabLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:backgroundTint="@null"
-
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:tabGravity="fill"
             app:tabIndicatorHeight="0dp"

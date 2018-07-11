@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".ui.activities.cleaners_details.CleanerDetailsActivity"
-            android:theme="@style/ToolBarTheme" />
+
+             />
         <activity
             android:name=".ui.activities.cleaners_details.CleanerDetailsActivityTest"
             android:excludeFromRecents="true"

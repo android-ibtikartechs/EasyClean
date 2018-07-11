@@ -97,6 +97,7 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
         ButterKnife.bind(this);
 
 
+
         handler = new Handler(Looper.getMainLooper());
         DataManager dataManager = ((MvpApp) getApplication()).getDataManager();
         presenter = new CleanerDetailsPresenter(dataManager);
@@ -114,6 +115,9 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
 
 
     }
+
+
+
 
     private void setupTabs() {
         viewPager.setOffscreenPageLimit(3);

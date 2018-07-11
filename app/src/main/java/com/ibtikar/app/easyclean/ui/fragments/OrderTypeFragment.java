@@ -2,12 +2,21 @@ package com.ibtikar.app.easyclean.ui.fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
+import com.ibtikar.app.easyclean.ui_utilities.ViewPagerAdapter;
+import com.ibtikar.app.easyclean.utilities.StaticValues;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +33,14 @@ public class OrderTypeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    @BindView(R.id.main_tabLayout)
+    TabLayout tabLayout;
+
+    @BindView(R.id.view_pager)
+    ViewPager viewPager;
+
+    ViewPagerAdapter adapter;
 
     public OrderTypeFragment() {
         // Required empty public constructor
@@ -59,7 +76,42 @@ public class OrderTypeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order_type, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_order_type, container, false);
+        ButterKnife.bind(this, rootView);
+        viewPager.setOffscreenPageLimit(2);
+        setupViewPager();
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabs();
+        return rootView;
     }
 
+    private void setupViewPager() {
+        adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFragment(ServiceTypeFragment.newInstance(StaticValues.FLAG_NORMAL_SERVICE_TYPE, "any"),"ServiceTypeFragment");
+        adapter.addFragment(ServiceTypeFragment.newInstance(StaticValues.FLAG_Fast_SERVICE_TYPE, "any"),"ServiceTypeFragment");
+        viewPager.setAdapter(adapter);
+    }
+    private void setupTabs() {
+        for (int i = 0; i < 2; i++) {
+            LinearLayout tab = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.view_custom_tab_title, null);
+
+            switch (i) {
+                case 0:
+                    //tab.setText("الرئيسية");
+                    ((CustomFontTextView) tab.findViewById(R.id.tab)).setText(R.string.normal_service);
+                    //tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.home, 0, 0);
+
+
+                    break;
+                case 1:
+                    //tab.setText("حسابي");
+                    //tab.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.myacoount1, 0, 0);
+                    ((CustomFontTextView) tab.findViewById(R.id.tab)).setText(R.string.fast_service);
+
+                    break;
+            }
+            tabLayout.getTabAt(i).setCustomView(tab);
+            ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i).setSoundEffectsEnabled(false);
+        }
+    }
 }

@@ -10,7 +10,43 @@
     <string name="info">معلومات</string>
     <string name="comments">التعليقات</string>
     <string name="delivary_price">رسم التوصيل</string>
+    <string name="normal_service">خدمة عادية</string>
+    <string name="fast_service">خدمة سريعة</string>
     <string-array name="admin_area">
         <item>اختر المدينة</item>
+
+    </string-array>
+
+    <string-array name="week_days_work">
+        <item>اختر اليوم</item>
+        <item>السبت</item>
+        <item>الأحد</item>
+        <item>الإثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
+    </string-array>
+
+    <string-array name="week_days_finish">
+        <item>وقت الاستلام</item>
+        <item>السبت</item>
+        <item>الأحد</item>
+        <item>الإثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
+    </string-array>
+
+    <string-array name="week_days_delivery">
+        <item>وقت التوصيل</item>
+        <item>السبت</item>
+        <item>الأحد</item>
+        <item>الإثنين</item>
+        <item>الثلاثاء</item>
+        <item>الأربعاء</item>
+        <item>الخميس</item>
+        <item>الجمعة</item>
     </string-array>
 </resources>
