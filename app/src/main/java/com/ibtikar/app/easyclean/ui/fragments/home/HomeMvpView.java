@@ -1,5 +1,6 @@
 package com.ibtikar.app.easyclean.ui.fragments.home;
 
+import com.ibtikar.app.easyclean.data.models.City;
 import com.ibtikar.app.easyclean.data.models.CleanerItemModel;
 import com.ibtikar.app.easyclean.ui.activities.base.MvpView;
 
@@ -17,4 +18,6 @@ public interface HomeMvpView extends MvpView {
     void removeLoadingFooter();
     void showRetryAdapter();
     void setIsLoadingFalse();
+    void setupSpinner(ArrayList<City> objects);
+    void refreshListCleaners(ArrayList<CleanerItemModel> cleanersList);
 }

@@ -12,12 +12,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.CleanerListAdapter;
 import com.ibtikar.app.easyclean.data.DataManager;
+import com.ibtikar.app.easyclean.data.models.City;
 import com.ibtikar.app.easyclean.data.models.CleanerItemModel;
 import com.ibtikar.app.easyclean.ui.activities.Main2Activity;
 import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivity;
@@ -69,6 +73,11 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
     CustomRecyclerView rvCleaners;
     @BindView(R.id.btn_search)
     ImageView btnSearch;
+
+    @BindView(R.id.cities_spin)
+    Spinner citiesSpin;
+
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -141,6 +150,7 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
         implementScrolListener();
 
         currentPage = PAGE_START;
+        presenter.loadCities();
         presenter.loadFirstPage();
         super.onViewCreated(view, savedInstanceState);
     }
@@ -236,6 +246,51 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @Override
     public void setIsLoadingFalse() {
+
+    }
+
+    @Override
+    public void setupSpinner(final ArrayList<City> objects) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                City country1 = new City();
+                country1.setId(0);
+                country1.setName("اختر المدينة");
+                objects.add(0, country1);
+
+                com.ibtikar.app.easyclean.data.adapters.SpinnerAdapter spinerAdapter = new com.ibtikar.app.easyclean.data.adapters.SpinnerAdapter(getActivity(), R.layout.spiner_item_layout, R.id.title, objects);
+                citiesSpin.setAdapter(spinerAdapter);
+                citiesSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        System.out.println(objects.get(position).getName());
+
+                        if (!objects.get(position).getId().equals("0")) {
+                            if (position != 0)
+                                presenter.search(objects.get(position).getId());
+                        }
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+            }
+        });
+
+    }
+
+    @Override
+    public void refreshListCleaners(final ArrayList<CleanerItemModel> cleanersList) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                adapter.clear();
+                adapter.addAll(cleanersList);
+            }
+        });
 
     }
 
