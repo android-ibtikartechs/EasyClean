@@ -12,13 +12,15 @@
     <string name="delivary_price">رسم التوصيل</string>
     <string name="normal_service">خدمة عادية</string>
     <string name="fast_service">خدمة سريعة</string>
+    <string name="btn_retry">حاول مرة أخرى</string>
+    <string name="error_msg">خطأ في الإتصال</string>
     <string-array name="admin_area">
         <item>اختر المدينة</item>
 
     </string-array>
 
     <string-array name="week_days_work">
-        <item>اختر اليوم</item>
+        <item>يوم</item>
         <item>السبت</item>
         <item>الأحد</item>
         <item>الإثنين</item>
@@ -29,7 +31,7 @@
     </string-array>
 
     <string-array name="week_days_finish">
-        <item>وقت الاستلام</item>
+        <item>استلام</item>
         <item>السبت</item>
         <item>الأحد</item>
         <item>الإثنين</item>
@@ -40,7 +42,7 @@
     </string-array>
 
     <string-array name="week_days_delivery">
-        <item>وقت التوصيل</item>
+        <item>توصيل</item>
         <item>السبت</item>
         <item>الأحد</item>
         <item>الإثنين</item>

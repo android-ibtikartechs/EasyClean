@@ -14,7 +14,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home_tab">Home</string>
+    <string name="home_tab">الرئيسية</string>
 
     <string name="tap_to_reload">Tap to reload</string>
     <string name="what_rong">Something went wrong</string>
@@ -28,14 +28,17 @@
     <string name="delivary_price">رسم التوصيل</string>
     <string name="normal_service">خدمة عادية</string>
     <string name="fast_service">خدمة سريعة</string>
+    <string name="btn_retry">حاول مرة أخرى</string>
+    <string name="error_msg">خطأ في الإتصال</string>
+    <string name="error_msg_no_internet">تأكد من اتصالك بالشبكة</string>
 
 
     <string-array name="admin_area">
-        <item>city</item>
+        <item>اختر المدينة</item>
     </string-array>
 
     <string-array name="week_days_work">
-        <item>اختر اليوم</item>
+        <item>يوم</item>
         <item>السبت</item>
         <item>الأحد</item>
         <item>الإثنين</item>
@@ -46,7 +49,7 @@
     </string-array>
 
     <string-array name="week_days_finish">
-        <item>وقت الاستلام</item>
+        <item>استلام</item>
         <item>السبت</item>
         <item>الأحد</item>
         <item>الإثنين</item>
@@ -57,7 +60,7 @@
     </string-array>
 
     <string-array name="week_days_delivery">
-        <item>وقت التوصيل</item>
+        <item>توصيل</item>
         <item>السبت</item>
         <item>الأحد</item>
         <item>الإثنين</item>

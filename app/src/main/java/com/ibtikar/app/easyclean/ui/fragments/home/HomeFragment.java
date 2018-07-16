@@ -1,19 +1,24 @@
 package com.ibtikar.app.easyclean.ui.fragments.home;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
@@ -28,6 +33,7 @@ import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsAc
 import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivityTest;
 import com.ibtikar.app.easyclean.ui.fragments.base.BaseFragment;
 import com.ibtikar.app.easyclean.ui.fragments.search.SearchDialogFragment;
+import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
 import com.ibtikar.app.easyclean.ui_utilities.CustomRecyclerView;
 import com.ibtikar.app.easyclean.utilities.PaginationAdapterCallback;
 import com.ibtikar.app.easyclean.utilities.PaginationScrollListener;
@@ -36,6 +42,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pl.droidsonroids.gif.GifImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,6 +83,18 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @BindView(R.id.cities_spin)
     Spinner citiesSpin;
+
+    @BindView(R.id.main_progress)
+    GifImageView mainProgressBar;
+
+    @BindView(R.id.error_btn_retry)
+    Button btnRetry;
+    @BindView(R.id.tv_main_deal_error_txt_cause)
+    CustomFontTextView teexErrorCause;
+    @BindView(R.id.lout_main_deal_error_layout)
+    LinearLayout loutError;
+    @BindView(R.id.error_layout)
+    CardView loutMainError;
 
 
 
@@ -196,22 +215,46 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @Override
     public void hideErrorView() {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                loutMainError.setVisibility(View.GONE);
 
+            }
+        });
     }
 
     @Override
     public void showErrorView() {
-
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                mainProgressBar.setVisibility(View.GONE);
+                loutError.setVisibility(View.VISIBLE);
+                teexErrorCause.setText(fetchErrorMessage());
+            }
+        });
     }
 
     @Override
     public String fetchErrorMessage() {
-        return null;
+        String errorMsg = getResources().getString(R.string.error_msg_unknown);
+        if (!isNetworkConnected()) {
+            errorMsg = getResources().getString(R.string.error_msg_no_internet);
+        }
+        return errorMsg;
     }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null;
+    }
+
 
     @Override
     public void showProgressBar() {
-
+        loutError.setVisibility(View.GONE);
+        mainProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override

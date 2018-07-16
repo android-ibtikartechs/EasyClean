@@ -19,6 +19,11 @@
 
     </style>
 
+
+    <style name="prog_bar">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
     <style name="DetailsTheme"  parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

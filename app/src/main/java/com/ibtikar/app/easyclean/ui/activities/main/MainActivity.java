@@ -20,6 +20,7 @@ import com.ibtikar.app.easyclean.ui.fragments.SubscribeFragment;
 import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
 import com.ibtikar.app.easyclean.ui_utilities.NonSwipeableViewPager;
 import com.ibtikar.app.easyclean.ui_utilities.ViewPagerAdapter;
+import com.ibtikar.app.easyclean.utilities.StaticValues;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -139,5 +140,11 @@ public class MainActivity extends BaseActivity {
         adapter.addFragment(OrdersFragment.newInstance(), "Orders Fragment");
 
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        StaticValues.changeLang(getApplicationContext(),"ar");
     }
 }
