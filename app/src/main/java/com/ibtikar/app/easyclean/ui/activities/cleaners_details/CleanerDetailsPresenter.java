@@ -46,7 +46,10 @@ public class CleanerDetailsPresenter <V extends CleanerDetailsMvpView> extends B
                 if (cleanerDetailsResponse.isStatus())
                 {
                     getMvpView().populateMainData(cleanerDetailsResponse.getDetails());
+                    getMvpView().hideErrorView();
                 }
+                else
+                    getMvpView().showErrorView();
 
             }
         });

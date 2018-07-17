@@ -1,5 +1,6 @@
 package com.ibtikar.app.easyclean.ui.activities.main;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.ui.activities.RegisterationActivity;
 import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
 import com.ibtikar.app.easyclean.ui.fragments.home.HomeFragment;
 import com.ibtikar.app.easyclean.ui.fragments.OrdersFragment;
@@ -95,13 +97,19 @@ public class MainActivity extends BaseActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                //((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIconsSelected[tab.getPosition()], 0, 0);
-                ((ImageView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
-                //((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
-                viewPager.setCurrentItem(tab.getPosition());
-                if (tab.getPosition() == 0)
-                {
-                    appBarLayout.setCardElevation(0);
+
+
+                if (tab.getPosition()==1 || tab.getPosition() == 3 || tab.getPosition() == 2)
+                    startActivity(new Intent(MainActivity.this, RegisterationActivity.class));
+                else {
+                    //((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIconsSelected[tab.getPosition()], 0, 0);
+                    ((ImageView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
+                    //((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
+                    viewPager.setCurrentItem(tab.getPosition());
+                    if (tab.getPosition() == 0)
+                    {
+                        appBarLayout.setCardElevation(0);
+                    }
                 }
             }
 

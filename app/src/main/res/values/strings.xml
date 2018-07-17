@@ -31,6 +31,8 @@
     <string name="btn_retry">حاول مرة أخرى</string>
     <string name="error_msg">خطأ في الإتصال</string>
     <string name="error_msg_no_internet">تأكد من اتصالك بالشبكة</string>
+    <string name="sign_up">تسجيل جديد</string>
+    <string name="login">تسجيل الدخول</string>
 
 
     <string-array name="admin_area">

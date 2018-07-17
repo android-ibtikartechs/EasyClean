@@ -33,6 +33,11 @@
             >
 
 
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/disconnected"
+                />
 
 
             <com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView
@@ -59,10 +64,12 @@
                 android:id="@+id/error_btn_retry"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:text="@string/btn_retry"
+                android:padding="10dp"
+                android:background="@drawable/shape_rounded_white"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -72,6 +79,7 @@
             android:layout_height="300dp"
             android:src="@drawable/washing"
             android:layout_gravity="center"
+
             />
 
 

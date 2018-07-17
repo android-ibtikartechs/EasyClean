@@ -3,15 +3,19 @@ package com.ibtikar.app.easyclean.ui.activities.cleaners_details;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -39,6 +43,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ooo.oxo.library.widget.PullBackLayout;
+import pl.droidsonroids.gif.GifImageView;
 
 public class CleanerDetailsActivity extends BaseActivity implements CleanerDetailsMvpView {
 
@@ -61,6 +66,20 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
 
     @BindView(R.id.tv_deliv_value)
     CustomFontTextView tvDelivValue;
+
+
+
+
+    @BindView(R.id.main_progress)
+    GifImageView mainProgressBar;
+    @BindView(R.id.error_btn_retry)
+    Button btnRetry;
+    @BindView(R.id.tv_main_deal_error_txt_cause)
+    CustomFontTextView teexErrorCause;
+    @BindView(R.id.lout_main_deal_error_layout)
+    LinearLayout loutError;
+    @BindView(R.id.error_layout)
+    CardView loutMainError;
 
     private int[] tabIcons = {R.drawable.time1, R.drawable.info1, R.drawable.info1};
     private int[] tabIconsSelected = {R.drawable.time, R.drawable.info, R.drawable.info};
@@ -104,7 +123,14 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
         presenter.onAttach(this);
 
         Intent intent = getIntent();
-        String cleanerId = intent.getStringExtra(StaticValues.KEY_CLEANER_ID);
+        final String cleanerId = intent.getStringExtra(StaticValues.KEY_CLEANER_ID);
+
+        btnRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.getMainDetails(cleanerId);
+            }
+        });
 
         presenter.getMainDetails(cleanerId);
 
@@ -331,22 +357,45 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
 
     @Override
     public void hideErrorView() {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                loutMainError.setVisibility(View.GONE);
 
+            }
+        });
     }
 
     @Override
     public void showErrorView() {
-
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                mainProgressBar.setVisibility(View.GONE);
+                loutError.setVisibility(View.VISIBLE);
+                teexErrorCause.setText(fetchErrorMessage());
+            }
+        });
     }
 
     @Override
     public String fetchErrorMessage() {
-        return null;
+        String errorMsg = getResources().getString(R.string.error_msg_unknown);
+        if (!isNetworkConnected()) {
+            errorMsg = getResources().getString(R.string.error_msg_no_internet);
+        }
+        return errorMsg;
+    }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null;
     }
 
     @Override
     public void showProgressBar() {
-
+        loutError.setVisibility(View.GONE);
+        mainProgressBar.setVisibility(View.VISIBLE);
     }
 
 

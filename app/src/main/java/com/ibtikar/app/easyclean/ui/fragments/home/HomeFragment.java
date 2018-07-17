@@ -86,7 +86,6 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
 
     @BindView(R.id.main_progress)
     GifImageView mainProgressBar;
-
     @BindView(R.id.error_btn_retry)
     Button btnRetry;
     @BindView(R.id.tv_main_deal_error_txt_cause)
@@ -156,8 +155,12 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-
-
+        btnRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.loadFirstPage();
+            }
+        });
         linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rvCleaners.setLayoutManager(linearLayoutManager);
         rvCleaners.setHasFixedSize(true);
@@ -171,6 +174,7 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
         currentPage = PAGE_START;
         presenter.loadCities();
         presenter.loadFirstPage();
+
         super.onViewCreated(view, savedInstanceState);
     }
 

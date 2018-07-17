@@ -15,7 +15,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.main.MainActivity"></activity>
+        <activity android:name=".ui.activities.main.MainActivity" />
         <activity android:name=".ui.activities.cleaners_details.CleanerDetailsActivity" />
         <activity
             android:name=".ui.activities.cleaners_details.CleanerDetailsActivityTest"
@@ -36,9 +36,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.intro_ad.AdActivity">
-
-        </activity>
+        <activity android:name=".ui.activities.intro_ad.AdActivity"></activity>
+        <activity android:name=".ui.activities.RegisterationActivity"></activity>
     </application>
 
 </manifest>
