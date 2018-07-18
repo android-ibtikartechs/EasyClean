@@ -90,5 +90,6 @@
 </LinearLayout>
 <include
     layout="@layout/view_errorly"
+
     />
 </RelativeLayout>

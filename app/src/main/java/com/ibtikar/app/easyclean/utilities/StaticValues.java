@@ -14,10 +14,8 @@ public class StaticValues {
     public static String KEY_CATEGORIES = "KEY_CATEGORIES";
     public static int FLAG_NORMAL_SERVICE_TYPE = 100;
     public static int FLAG_Fast_SERVICE_TYPE = 101;
-
-
-
-
+    public static int FLAG_TOAST_INT = 1;
+    public static int FLAG_TOAST_String = 2;
 
 
 

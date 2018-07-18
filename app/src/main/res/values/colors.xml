@@ -14,4 +14,7 @@
     <color name="placeholder_grey">#AAADC4</color>
     <color name="gray_blue">#607D8B</color>
     <color name="blue_more_white">#b7d1fa</color>
+    <color name="blue_facebook">#3b5998</color>
+    <color name="blue_twitter">#20b8ff</color>
+    <color name="red_g_plus">#9d0502</color>
 </resources>

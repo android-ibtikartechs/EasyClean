@@ -11,10 +11,9 @@ import android.widget.LinearLayout;
 
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.ui.fragments.LoginFragment;
-import com.ibtikar.app.easyclean.ui.fragments.SignUpFragment;
+import com.ibtikar.app.easyclean.ui.fragments.signup.SignUpFragment;
 import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
 import com.ibtikar.app.easyclean.ui_utilities.ViewPagerAdapter;
-import com.ibtikar.app.easyclean.utilities.StaticValues;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
