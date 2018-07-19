@@ -6,7 +6,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.data.CleanerListAdapter;
 import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.data.models.City;
 import com.ibtikar.app.easyclean.data.models.Destrict;
@@ -65,6 +68,8 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
     Spinner destrictsSpin;
 
 
+    @BindView(R.id.lout_main_signup)
+    NestedScrollView loutMain;
 
     @BindView(R.id.button)
     Button btnSignUp;
@@ -83,6 +88,7 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
     Handler handler;
 
     String destrictId;
+
 
 
     public SignUpFragment() {
@@ -233,4 +239,34 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
             }
         });
     }
+
+    @Override
+    public void showReActivateSnackbar(String msg) {
+        Snackbar snackbar = Snackbar
+                .make(loutMain, msg, Snackbar.LENGTH_LONG)
+                .setAction("إعادة الإرسال", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        presenter.resendActivation(etEmail.getText().toString());
+                    }
+                });
+
+        snackbar.show();
+    }
+
+    @Override
+    public void showActivationSentSnackBar() {
+        Snackbar snackbar1 = Snackbar.make(loutMain, "تم إرسال رابط التفعيل على بريك الإلكتروني", Snackbar.LENGTH_SHORT);
+        snackbar1.show();
+    }
+
+    @Override
+    public void showSnackbarLogin() {
+        Snackbar snackbar = Snackbar
+                .make(loutMain, "هذا الحساب مسجل بالفعل قم بتسجيل الدخول", Snackbar.LENGTH_LONG);
+        snackbar.show();
+    }
+
+
+
 }

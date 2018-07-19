@@ -8,4 +8,5 @@ public interface SignUpMvpPresenter <V extends SignUpMvpView> extends MvpPresent
     void signup(ArrayList<String> data);
     void loadCities();
     void loadDestricts(String cityId);
+    void resendActivation(String email);
 }

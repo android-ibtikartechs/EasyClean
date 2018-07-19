@@ -12,4 +12,14 @@ public class DataManager {
         this.mSqliteHandler = mSqliteHandler;
     }
 
+    public void setLogin (boolean isLogin){
+
+        mSharedPrefsHelper.setLogin(isLogin);
+
+    }
+
+    public boolean isLogIn(){
+        return mSharedPrefsHelper.isLogIn();
+    }
+
 }

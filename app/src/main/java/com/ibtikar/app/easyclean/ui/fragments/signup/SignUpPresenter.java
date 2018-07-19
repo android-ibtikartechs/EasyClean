@@ -1,6 +1,7 @@
 package com.ibtikar.app.easyclean.ui.fragments.signup;
 
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -78,10 +79,11 @@ public class SignUpPresenter <V extends SignUpMvpView> extends BasePresenter<V> 
                             if (jsnMainobject.getString("code").equals("0"))
                             {
                                 getMvpView().showToast("برجاء تفعيل الحساب اولا",StaticValues.FLAG_TOAST_String);
+                                getMvpView().showReActivateSnackbar("برجاء تفعيل الحساب اولا من خلال بريدك الإلكتروني");
                             }
                             else if (jsnMainobject.getString("code").equals("1"))
                             {
-                                getMvpView().showToast("هذا الحساب مسجل بالفعل",StaticValues.FLAG_TOAST_String);
+                                getMvpView().showSnackbarLogin();
                             }
                         }
 
@@ -150,6 +152,44 @@ public class SignUpPresenter <V extends SignUpMvpView> extends BasePresenter<V> 
                 }
             }
         });
+    }
+
+    @Override
+    public void resendActivation(String email) {
+        OkHttpClient client = new OkHttpClient();
+
+        RequestBody body = new MultipartBody.Builder()
+                .setType(FORM)
+                .addFormDataPart("email", email)
+                .build();
+
+        okhttp3.Request request = new okhttp3.Request.Builder()
+                .url(buildUrl("resendactivation"))
+                .post(body)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String stringResponse = response.body().string();
+
+                try {
+                    JSONObject jsnMainObject = new JSONObject(stringResponse);
+                    if (jsnMainObject.getBoolean("status"))
+                    {
+                        getMvpView().showActivationSentSnackBar();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     private boolean checkData (ArrayList<String> data)

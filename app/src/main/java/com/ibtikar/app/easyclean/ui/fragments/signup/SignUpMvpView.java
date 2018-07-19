@@ -12,4 +12,7 @@ public interface SignUpMvpView extends MvpView {
     void showToast(String msg, int flag_text_or_int);
     void setupCitiesSpinner(ArrayList<City> objects);
     void setupdestrictsSpinner(ArrayList<Destrict> objects);
+    void showReActivateSnackbar(String msg);
+    void showActivationSentSnackBar();
+    void showSnackbarLogin();
 }
