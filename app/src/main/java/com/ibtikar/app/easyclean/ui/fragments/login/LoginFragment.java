@@ -1,6 +1,7 @@
 package com.ibtikar.app.easyclean.ui.fragments.login;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,11 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.DataManager;
+import com.ibtikar.app.easyclean.ui.activities.forgetpassword.ForgetPasswordActivity;
 import com.ibtikar.app.easyclean.ui.fragments.base.BaseFragment;
 import com.ibtikar.app.easyclean.utilities.StaticValues;
 
@@ -62,6 +65,9 @@ public class LoginFragment extends BaseFragment implements LoginMvpView {
 
     @BindView(R.id.lout_btn_login_twitter)
     CardView btnLoginTwitter;
+
+    @BindView(R.id.textView2)
+    TextView btnForgetPassword;
 
     LoginPresenter presenter;
 
@@ -119,6 +125,13 @@ public class LoginFragment extends BaseFragment implements LoginMvpView {
             @Override
             public void onClick(View v) {
                 presenter.login(etEmail.getText().toString(),etPassword.getText().toString());
+            }
+        });
+
+        btnForgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ForgetPasswordActivity.class));
             }
         });
     }

@@ -36,8 +36,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.intro_ad.AdActivity"></activity>
-        <activity android:name=".ui.activities.RegisterationActivity"></activity>
+        <activity android:name=".ui.activities.intro_ad.AdActivity" />
+        <activity android:name=".ui.activities.RegisterationActivity" />
+        <activity android:name=".ui.activities.forgetpassword.ForgetPasswordActivity"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
     </application>
 
 </manifest>
