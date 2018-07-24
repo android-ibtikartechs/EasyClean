@@ -52,7 +52,7 @@ public class SplashActivity extends AppCompatActivity {
     private void init() {
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(SplashActivity.this, AdActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 SplashActivity.this.finish();
             }
         }, 2000);

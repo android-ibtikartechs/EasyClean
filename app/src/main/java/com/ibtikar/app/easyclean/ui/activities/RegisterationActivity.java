@@ -3,13 +3,18 @@ package com.ibtikar.app.easyclean.ui.activities;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
+import com.ibtikar.app.easyclean.ui.activities.forgetpassword.ForgetPasswordActivity;
 import com.ibtikar.app.easyclean.ui.fragments.login.LoginFragment;
 import com.ibtikar.app.easyclean.ui.fragments.signup.SignUpFragment;
 import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
@@ -21,7 +26,7 @@ import butterknife.ButterKnife;
 public class RegisterationActivity extends BaseActivity  {
 
     @BindView(R.id.toolbar_main)
-    Toolbar mainToolbar;
+    Toolbar toolbar;
 
     @BindView(R.id.main_tabLayout)
     TabLayout tabLayout;
@@ -39,8 +44,50 @@ public class RegisterationActivity extends BaseActivity  {
         viewPager.setOffscreenPageLimit(2);
         setupViewPager();
         tabLayout.setupWithViewPager(viewPager);
+        setupActionBar("استعادة كلمة المرور");
         setupTabs();
     }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    public void setupActionBar(String title) {
+        changeLang(RegisterationActivity.this,"ar");
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayUseLogoEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_back_act);
+
+        LayoutInflater inflator = LayoutInflater.from(this);
+        View v = inflator.inflate(R.layout.custom_action_bar_title, null);
+
+        ((CustomFontTextView)v.findViewById(R.id.title)).setText(title);
+
+        actionBar.setCustomView(v);
+    }
+
+
+
 
     private void setupViewPager() {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());

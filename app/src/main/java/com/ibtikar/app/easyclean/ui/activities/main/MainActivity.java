@@ -1,6 +1,5 @@
 package com.ibtikar.app.easyclean.ui.activities.main;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -13,11 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ibtikar.app.easyclean.R;
-import com.ibtikar.app.easyclean.ui.activities.RegisterationActivity;
 import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
 import com.ibtikar.app.easyclean.ui.fragments.home.HomeFragment;
 import com.ibtikar.app.easyclean.ui.fragments.OrdersFragment;
-import com.ibtikar.app.easyclean.ui.fragments.ProfileFragment;
+import com.ibtikar.app.easyclean.ui.fragments.profile.ProfileFragment;
 import com.ibtikar.app.easyclean.ui.fragments.SubscribeFragment;
 import com.ibtikar.app.easyclean.ui_utilities.CustomFontTextView;
 import com.ibtikar.app.easyclean.ui_utilities.NonSwipeableViewPager;
@@ -99,9 +97,9 @@ public class MainActivity extends BaseActivity {
             public void onTabSelected(TabLayout.Tab tab) {
 
 
-                if (tab.getPosition()==1 || tab.getPosition() == 3 || tab.getPosition() == 2)
-                    startActivity(new Intent(MainActivity.this, RegisterationActivity.class));
-                else {
+              /*  if (tab.getPosition()==1 || tab.getPosition() == 3 || tab.getPosition() == 2)
+                    startActivity(new Intent(MainActivity.this, RegisterationActivity.class)); */
+               // else {
                     //((CustomFontTextView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab)).setCompoundDrawablesWithIntrinsicBounds(0, tabIconsSelected[tab.getPosition()], 0, 0);
                     ((ImageView)((ViewGroup) tabLayout.getChildAt(0)).getChildAt(tab.getPosition()).findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
                     //((ImageView)tab.findViewById(R.id.tab_icon)).setImageResource(tabIconsSelected[tab.getPosition()]);
@@ -111,7 +109,7 @@ public class MainActivity extends BaseActivity {
                         appBarLayout.setCardElevation(0);
                     }
                 }
-            }
+            //}
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {

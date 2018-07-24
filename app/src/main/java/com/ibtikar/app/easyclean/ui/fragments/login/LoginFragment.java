@@ -1,6 +1,9 @@
 package com.ibtikar.app.easyclean.ui.fragments.login;
 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +26,7 @@ import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.ui.activities.forgetpassword.ForgetPasswordActivity;
+import com.ibtikar.app.easyclean.ui.activities.main.MainActivity;
 import com.ibtikar.app.easyclean.ui.fragments.base.BaseFragment;
 import com.ibtikar.app.easyclean.utilities.StaticValues;
 

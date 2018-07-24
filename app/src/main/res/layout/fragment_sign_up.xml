@@ -339,7 +339,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
-        app:cardBackgroundColor="@color/blue_facebook"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button">
@@ -349,17 +349,14 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_facebook" />
+                android:padding="10dp"
+                android:background="@color/blue_facebook"
+                android:src="@drawable/ic_fb" />
 
-            <LinearLayout
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/placeholder_grey"></LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -368,7 +365,7 @@
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
                 android:text="@string/login_with_facebook"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -380,7 +377,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/red_g_plus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lout_btn_login_facebook">
@@ -390,17 +386,13 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/ic_google" />
+                android:padding="10dp"
+                android:background="@color/red_g_plus"
+                android:src="@drawable/ic_g" />
 
-            <LinearLayout
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/placeholder_grey"></LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -409,7 +401,7 @@
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
                 android:text="@string/login_with_google"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -422,7 +414,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/blue_twitter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lout_btn_login_google">
@@ -432,17 +423,13 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                app:srcCompat="@drawable/ic_twitter" />
+                android:background="@color/blue_twitter"
+                android:padding="7dp"
+                app:srcCompat="@drawable/ic_tw" />
 
-            <LinearLayout
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/placeholder_grey"></LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -451,7 +438,7 @@
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
                 android:text="@string/login_with_twitter"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>

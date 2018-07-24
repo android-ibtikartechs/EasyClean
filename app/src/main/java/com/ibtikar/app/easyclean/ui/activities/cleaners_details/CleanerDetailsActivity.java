@@ -10,9 +10,13 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,6 +30,7 @@ import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.data.models.Category;
 import com.ibtikar.app.easyclean.data.models.CleanerDetails;
 import com.ibtikar.app.easyclean.data.models.Gallery;
+import com.ibtikar.app.easyclean.ui.activities.RegisterationActivity;
 import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
 import com.ibtikar.app.easyclean.ui.fragments.InfoFragment;
 import com.ibtikar.app.easyclean.ui.fragments.OrderTypeFragment;
@@ -50,6 +55,9 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
     ArrayList<Gallery> slider_image_list = new ArrayList<>();
     @BindView(R.id.page_slider)
     ViewPager imagesSlider;
+
+    @BindView(R.id.toolbar_main)
+    Toolbar toolbar;
 
 
     @BindView(R.id.tv_mini_charge)
@@ -114,7 +122,7 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cleaner_details);
         ButterKnife.bind(this);
-
+        setupActionBar();
 
 
         handler = new Handler(Looper.getMainLooper());
@@ -143,6 +151,42 @@ public class CleanerDetailsActivity extends BaseActivity implements CleanerDetai
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    public void setupActionBar() {
+        changeLang(CleanerDetailsActivity.this,"ar");
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setDisplayUseLogoEnabled(false);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_back_act);
+
+      /*  LayoutInflater inflator = LayoutInflater.from(this);
+        View v = inflator.inflate(R.layout.custom_action_bar_title, null);
+
+        ((CustomFontTextView)v.findViewById(R.id.title)).setText(title);
+
+        actionBar.setCustomView(v);  */
+    }
 
 
     private void setupTabs() {
