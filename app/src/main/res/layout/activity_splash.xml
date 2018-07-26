@@ -10,8 +10,15 @@
         android:id="@+id/im_splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/splash_bg"
+        app:srcCompat="@drawable/splash_pattern"
         android:scaleType="centerCrop"
+        />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        app:srcCompat = "@drawable/logo_big"
         />
 
 </RelativeLayout>
