@@ -16,13 +16,15 @@ import java.util.Locale;
 public class MvpApp extends Application {
 
     DataManager dataManager;
+    private static MvpApp sApplication;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sApplication = this;
         String lang_code = "ar"; //load it from SharedPref
         changeLang(getApplicationContext(), lang_code);
+
 
         SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getApplicationContext());
         SqliteHandler sqliteHandler = new SqliteHandler(getApplicationContext());
@@ -32,6 +34,16 @@ public class MvpApp extends Application {
 
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        String lang_code = "ar"; //load it from SharedPref
+        Context context = changeLang(base, lang_code);
+        super.attachBaseContext(context);
+    }
+
+    public static MvpApp getApplication() {
+        return sApplication;
+    }
 
     public DataManager getDataManager() {
         return dataManager;

@@ -1,5 +1,6 @@
 package com.ibtikar.app.easyclean.ui.activities.main;
 
+import android.content.res.Configuration;
 import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -11,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
+import com.ibtikar.app.easyclean.helpers.LanguageHelper;
 import com.ibtikar.app.easyclean.ui.activities.base.BaseActivity;
 import com.ibtikar.app.easyclean.ui.fragments.home.HomeFragment;
 import com.ibtikar.app.easyclean.ui.fragments.OrdersFragment;
@@ -44,6 +47,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //LanguageHelper.updateLanguage(this, "ar_SA");
+        MvpApp.getApplication().changeLang(this,"ar");
         ButterKnife.bind(this);
 
         viewPager.setOffscreenPageLimit(4);
@@ -153,4 +158,10 @@ public class MainActivity extends BaseActivity {
         super.onResume();
         StaticValues.changeLang(getApplicationContext(),"ar");
     }
+
+   /* @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LanguageHelper.updateLanguage(this, "ar_SA");
+    }*/
 }

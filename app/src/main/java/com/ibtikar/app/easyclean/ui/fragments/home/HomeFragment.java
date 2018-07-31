@@ -3,6 +3,7 @@ package com.ibtikar.app.easyclean.ui.fragments.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +29,7 @@ import com.ibtikar.app.easyclean.data.CleanerListAdapter;
 import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.data.models.City;
 import com.ibtikar.app.easyclean.data.models.CleanerItemModel;
+import com.ibtikar.app.easyclean.helpers.LanguageHelper;
 import com.ibtikar.app.easyclean.ui.activities.Main2Activity;
 import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivity;
 import com.ibtikar.app.easyclean.ui.activities.cleaners_details.CleanerDetailsActivityTest;
@@ -121,6 +123,7 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageHelper.updateLanguage(getActivity(), "ar_SA");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -349,5 +352,11 @@ public class HomeFragment extends BaseFragment implements HomeMvpView, CleanerLi
     @Override
     public void retryPageLoad() {
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LanguageHelper.updateLanguage(getActivity(), "ar_SA");
     }
 }
