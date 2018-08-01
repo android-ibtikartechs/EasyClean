@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.ibtikar.app.easyclean.data.CleanerListAdapter;
 import com.ibtikar.app.easyclean.data.DataManager;
 import com.ibtikar.app.easyclean.data.models.City;
 import com.ibtikar.app.easyclean.data.models.Destrict;
+import com.ibtikar.app.easyclean.ui.fragments.DialogFragmentTwoButtons;
 import com.ibtikar.app.easyclean.ui.fragments.base.BaseFragment;
 import com.ibtikar.app.easyclean.utilities.StaticValues;
 
@@ -242,7 +244,7 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
 
     @Override
     public void showReActivateSnackbar(String msg) {
-        Snackbar snackbar = Snackbar
+      /*  Snackbar snackbar = Snackbar
                 .make(loutMain, msg, Snackbar.LENGTH_LONG)
                 .setAction("إعادة الإرسال", new View.OnClickListener() {
                     @Override
@@ -251,7 +253,17 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
                     }
                 });
 
-        snackbar.show();
+        snackbar.show();*/
+
+      handler.post(new Runnable() {
+          @Override
+          public void run() {
+              FragmentManager fm = getChildFragmentManager();
+              DialogFragmentTwoButtons dialogFragmentActivationLink = DialogFragmentTwoButtons.newInstance();
+              dialogFragmentActivationLink.show(fm, "alert");
+          }
+      });
+
     }
 
     @Override
