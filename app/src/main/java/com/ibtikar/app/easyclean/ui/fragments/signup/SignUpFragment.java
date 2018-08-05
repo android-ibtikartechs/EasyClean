@@ -1,6 +1,7 @@
 package com.ibtikar.app.easyclean.ui.fragments.signup;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +21,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.ibtikar.app.easyclean.MvpApp;
 import com.ibtikar.app.easyclean.R;
 import com.ibtikar.app.easyclean.data.CleanerListAdapter;
@@ -40,7 +46,7 @@ import butterknife.ButterKnife;
  * Use the {@link SignUpFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SignUpFragment extends BaseFragment implements SignUpMvpView {
+public class SignUpFragment extends BaseFragment implements SignUpMvpView, View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -85,12 +91,16 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
     @BindView(R.id.lout_btn_login_twitter)
     CardView btnLoginTwitter;
 
+    @BindView(R.id.login_button)
+    LoginButton fbLogin;
+
     SignUpPresenter presenter;
+
 
     Handler handler;
 
     String destrictId;
-
+    private CallbackManager callbackManager;
 
 
     public SignUpFragment() {
@@ -126,7 +136,7 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
         DataManager dataManager = ((MvpApp) getActivity().getApplication()).getDataManager();
         presenter = new SignUpPresenter(dataManager);
         presenter.onAttach(this);
-
+        callbackManager = CallbackManager.Factory.create();
         presenter.loadCities();
 
 
@@ -139,6 +149,7 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         ButterKnife.bind(this, view);
+        btnLoginFacebook.setOnClickListener(this);
         return view;
 
     }
@@ -146,6 +157,31 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        fbLogin.setReadPermissions("email");
+        // If using in a fragment
+        fbLogin.setFragment(this);
+
+        // Callback registration
+        fbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -279,6 +315,18 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView {
         snackbar.show();
     }
 
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void onClick(View v) {
+        if (v == btnLoginFacebook) {
+            fbLogin.performClick();
+        }
+    }
 
 
 }

@@ -42,6 +42,10 @@
     <string name="choose_destrict">برجاء تحديد المنطقة</string>
     <string name="password_sent">تم إرسال كلمة المرور إلى بريدك الإلكتروني</string>
     <string name="not_found">عفوا هذا الحساب غير مسجل لدينا</string>
+    <string name="facebook_app_id">1206857946122875</string>
+    <string name="fb_login_protocol_scheme">fb1206857946122875</string>
+
+
 
 
     <string-array name="admin_area">

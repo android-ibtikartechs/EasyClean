@@ -10,10 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ibtikar.app.easyclean.R;
 
+import butterknife.BindView;
+
 public class DialogFragmentTwoButtons extends DialogFragment {
+    @BindView(R.id.imageView5)
+    ImageView mainIcon;
+
+    @BindView(R.id.textView5)
+    TextView title;
+
 
     public static DialogFragmentTwoButtons newInstance() {
         DialogFragmentTwoButtons fragment = new DialogFragmentTwoButtons();
