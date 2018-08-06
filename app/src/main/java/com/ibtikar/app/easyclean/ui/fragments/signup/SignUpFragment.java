@@ -280,7 +280,7 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView, View.
 
     @Override
     public void showReActivateSnackbar(String msg) {
-      /*  Snackbar snackbar = Snackbar
+        Snackbar snackbar = Snackbar
                 .make(loutMain, msg, Snackbar.LENGTH_LONG)
                 .setAction("إعادة الإرسال", new View.OnClickListener() {
                     @Override
@@ -289,16 +289,16 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView, View.
                     }
                 });
 
-        snackbar.show();*/
+        snackbar.show();
 
-      handler.post(new Runnable() {
+     /* handler.post(new Runnable() {
           @Override
           public void run() {
               FragmentManager fm = getChildFragmentManager();
               DialogFragmentTwoButtons dialogFragmentActivationLink = DialogFragmentTwoButtons.newInstance();
               dialogFragmentActivationLink.show(fm, "alert");
           }
-      });
+      }); */
 
     }
 

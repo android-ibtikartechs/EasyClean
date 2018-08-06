@@ -101,6 +101,11 @@ public class SignUpPresenter <V extends SignUpMvpView> extends BasePresenter<V> 
     }
 
     @Override
+    public void signupSocial(String socialType, String accessToken) {
+
+    }
+
+    @Override
     public void loadCities() {
         OkHttpClient client = new OkHttpClient();
 
