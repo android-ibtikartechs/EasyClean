@@ -15,4 +15,5 @@ public interface SignUpMvpView extends MvpView {
     void showReActivateSnackbar(String msg);
     void showActivationSentSnackBar();
     void showSnackbarLogin();
+    void finishRegisteration();
 }

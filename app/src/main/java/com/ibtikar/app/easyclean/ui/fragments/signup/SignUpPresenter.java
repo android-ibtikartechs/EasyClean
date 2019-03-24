@@ -102,7 +102,30 @@ public class SignUpPresenter <V extends SignUpMvpView> extends BasePresenter<V> 
 
     @Override
     public void signupSocial(String socialType, String accessToken) {
+        OkHttpClient client = new OkHttpClient();
 
+        RequestBody body = new MultipartBody.Builder()
+                .setType(FORM)
+                .addFormDataPart("socialtoken", accessToken)
+                .addFormDataPart("type", socialType)
+                .build();
+
+        okhttp3.Request request = new okhttp3.Request.Builder()
+                .url(buildUrl("sociallogin"))
+                .post(body)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                getDataManager().setLogin(true);
+                getMvpView().finishRegisteration();
+            }
+        });
     }
 
     @Override

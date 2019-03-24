@@ -23,9 +23,10 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     public ContextWrapper changeLang(Context context, String lang_code) {
         Locale sysLocale;
-
         Resources rs = context.getResources();
         Configuration config = rs.getConfiguration();
+
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             sysLocale = config.getLocales().get(0);

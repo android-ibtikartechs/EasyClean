@@ -10,4 +10,5 @@ public interface SignUpMvpPresenter <V extends SignUpMvpView> extends MvpPresent
     void loadCities();
     void loadDestricts(String cityId);
     void resendActivation(String email);
+
 }

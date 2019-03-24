@@ -167,12 +167,13 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView, View.
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
-
+                presenter.signupSocial("1", loginResult.getAccessToken().getToken());
             }
 
             @Override
             public void onCancel() {
                 // App code
+                
 
             }
 
@@ -313,6 +314,11 @@ public class SignUpFragment extends BaseFragment implements SignUpMvpView, View.
         Snackbar snackbar = Snackbar
                 .make(loutMain, "هذا الحساب مسجل بالفعل قم بتسجيل الدخول", Snackbar.LENGTH_LONG);
         snackbar.show();
+    }
+
+    @Override
+    public void finishRegisteration() {
+        getActivity().finish();
     }
 
 
